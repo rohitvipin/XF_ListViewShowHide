@@ -7,8 +7,8 @@
     <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Colors}">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ViewCell>
-                    <StackLayout VerticalOptions="FillAndExpand">
+                <local:RedrawViewCell IsRedrawRequired="{Binding Source={x:Reference VisibiltySwitch}, Path=IsToggled}">
+                    <StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="{Binding Name, StringFormat='Color : {0}'}" HorizontalOptions="StartAndExpand"/>
                             <Switch x:Name="VisibiltySwitch" HorizontalOptions="End"/>
@@ -21,7 +21,7 @@
                             </BoxView.Triggers>
                         </BoxView>
                     </StackLayout>
-                </ViewCell>
+                </local:RedrawViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
