@@ -4,8 +4,25 @@
              xmlns:local="clr-namespace:ListViewShowHide"
              x:Class="ListViewShowHide.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-
+    <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Colors}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Name, StringFormat='Color : {0}'}" HorizontalOptions="StartAndExpand"/>
+                            <Switch x:Name="VisibiltySwitch" HorizontalOptions="End"/>
+                        </StackLayout>
+                        <BoxView HeightRequest="200" HorizontalOptions="FillAndExpand" Color="{Binding Color}">
+                            <BoxView.Triggers>
+                                <DataTrigger TargetType="BoxView" Binding="{Binding Source={x:Reference VisibiltySwitch}, Path=IsToggled}" Value="False">
+                                    <Setter Property="IsVisible" Value="False" />
+                                </DataTrigger>
+                            </BoxView.Triggers>
+                        </BoxView>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
