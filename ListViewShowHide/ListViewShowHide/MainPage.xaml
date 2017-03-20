@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:ListViewShowHide"
              x:Class="ListViewShowHide.MainPage">
 
-    <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Colors}">
+    <ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding Colors}" HasUnevenRows="True">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <local:RedrawViewCell IsRedrawRequired="{Binding Source={x:Reference VisibiltySwitch}, Path=IsToggled}">

@@ -12,7 +12,7 @@ namespace ListViewShowHide
             {
                 return;
             }
-            if (newvalue != null && (bool)newvalue)
+            if (newvalue != null)
             {
                 (bindable as RedrawViewCell)?.ForceUpdateSize();
             }
